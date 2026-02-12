@@ -11,19 +11,26 @@ public class LexicalTwistPuzzle {
         System.out.print("Enter first word: ");
         String firstWord = scanner.nextLine();
 
-        // Validation for first word
         if (firstWord.contains(" ")) {
             System.out.println(firstWord + " is an invalid word");
-            return; // graceful termination
+            return;
         }
 
         System.out.print("Enter second word: ");
         String secondWord = scanner.nextLine();
 
-        // Validation for second word
         if (secondWord.contains(" ")) {
             System.out.println(secondWord + " is an invalid word");
-            return; // graceful termination
+            return;
+        }
+
+        // UC4 Logic: Reverse Check
+        String reversed = new StringBuilder(firstWord).reverse().toString();
+
+        if (reversed.equalsIgnoreCase(secondWord)) {
+            System.out.println("Words are reverse of each other");
+        } else {
+            System.out.println("Words are NOT reverse of each other");
         }
 
         scanner.close();
